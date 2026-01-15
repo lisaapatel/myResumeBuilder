@@ -1,6 +1,8 @@
 # Resume Template Builder (React + TypeScript + Print-Accurate Layout)
 
 A resume template builder focused on **pixel-perfect print/PDF output** and **one-page overflow protection**.
+<img width="763" height="853" alt="Screenshot 2026-01-14 at 10 39 03 PM" src="https://github.com/user-attachments/assets/a99f40a7-fc0c-49f9-96c0-8bd667defc63" />
+
 
 ## Tech Stack
 
