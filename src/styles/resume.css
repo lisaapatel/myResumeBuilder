@@ -1,0 +1,54 @@
+/**
+ * Resume-specific styles
+ * All layout is handled via inline styles for deterministic rendering
+ */
+
+/* Global font family - clean, professional */
+* {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Preview shell - visible only on screen */
+.preview-shell {
+  display: block;
+}
+
+/* Print root - hidden on screen, visible only in print */
+.print-root {
+  display: none;
+}
+
+.resume-page {
+  width: 100%;
+  height: 100%; /* Concrete height for CSS Grid (not minHeight) */
+  display: flex;
+  flex-direction: column;
+}
+
+.resume-page * {
+  /* Prevent text selection during print */
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* Ensure no unwanted breaks */
+.role-block,
+.section,
+.sidebar-section {
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+/* Baseline grid alignment helper */
+.baseline-grid {
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(0, 0, 0, 0.1) 3px,
+    rgba(0, 0, 0, 0.1) 4px
+  );
+}
+

@@ -1,0 +1,142 @@
+/**
+ * Print styles
+ * Ensures print output matches screen exactly
+ */
+
+@media print {
+  /* Force A4 page size with zero margins - explicit pixel dimensions */
+  /* This ensures print dialog defaults to 100% scale */
+  @page {
+    size: 794px 1123px; /* Explicit A4 dimensions in pixels */
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+  
+  /* Force html/body to exact A4 dimensions - no browser printable area */
+  html {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 794px !important;
+    height: 1123px !important;
+    zoom: 1 !important;
+    -webkit-zoom: 1 !important;
+    transform: scale(1) !important;
+  }
+  
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 794px !important;
+    height: 1123px !important;
+    background: #fff !important;
+    overflow: hidden !important;
+    zoom: 1 !important;
+    -webkit-zoom: 1 !important;
+    transform: scale(1) !important;
+    display: block !important; /* Remove flex to prevent centering */
+  }
+  
+  #root {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 794px !important;
+    height: 1123px !important;
+  }
+  
+  .resume-app {
+    padding: 0 !important;
+    margin: 0 !important;
+    background: #fff !important;
+    width: 794px !important;
+    height: 1123px !important;
+  }
+  
+  /* Hide preview shell - all UI, buttons, backgrounds */
+  .preview-shell {
+    display: none !important;
+  }
+  
+  /* Isolate print root - printable document tree only */
+  .print-root {
+    display: block !important; /* Make visible in print */
+    margin: 0 !important;
+    padding: 0 !important;
+    background: none !important;
+    width: 794px !important;
+    height: 1123px !important;
+    position: relative !important;
+  }
+  
+  /* Hide UI elements */
+  button,
+  .command-bar,
+  .overflow-warning {
+    display: none !important;
+  }
+  
+  /* Hard page box - exact A4 dimensions, ZERO padding/margin */
+  /* This is the single source of truth for page size */
+  .hard-page-box {
+    margin: 0 !important;
+    padding: 0 !important; /* NO padding - all margins are in .page-content-area */
+    box-shadow: none !important;
+    border: none !important;
+    outline: none !important; /* Remove preview guides */
+    width: 794px !important;
+    height: 1123px !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+  }
+  
+  /* Content area - ALL margins are here */
+  .page-content-area {
+    width: 100% !important;
+    height: 100% !important; /* Fill entire hard-page-box */
+    padding: 24px 27px 48px 28px !important; /* All margins inside (left margin 28px, right margin 27px) */
+    box-sizing: border-box !important;
+    outline: none !important; /* Remove debug outlines */
+  }
+  
+  /* Prevent page breaks */
+  .resume-page {
+    page-break-after: avoid !important;
+    page-break-before: avoid !important;
+  }
+  
+  .section,
+  .role-block,
+  .sidebar-section {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+  
+  /* Ensure page-level sidebar grey background prints */
+  .page-sidebar-background {
+    background-color: #f5f5f5 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  /* Remove preview guides during print */
+  .hard-page-box {
+    border: none !important;
+    outline: none !important;
+  }
+  
+  .page-content-area {
+    outline: none !important;
+  }
+  
+  /* Ensure hard page box is exact A4 size in print */
+  .hard-page-box {
+    width: 794px !important;
+    height: 1123px !important;
+  }
+}
+
